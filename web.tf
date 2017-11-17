@@ -22,11 +22,8 @@ resource "aws_instance" "web" {
     "${aws_security_group.web_host_sg.id}",
   ]
 
-  tags {
-    Name = "web-${format("%03d", count.index + 1)}"
-  }
 
-  count = "${length(var.instance_ips)}"
+  count = 2
 }
 
 resource "aws_elb" "web" {
