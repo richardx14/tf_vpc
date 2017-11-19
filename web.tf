@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 variable "environment" {
- default = "development"
+  default = "development"
 }
 
 module "vpc" {
-  source        = "github.com/richardx14/tf_vpc.git"
+  source        = "./vpc"
   name          = "web"
   cidr          = "10.0.0.0/16"
   public_subnet = "10.0.1.0/24"
@@ -31,7 +31,6 @@ resource "aws_instance" "web" {
   }
 
   count = "${var.environment == "production" ? 4 : 2}"
-
 }
 
 resource "aws_elb" "web" {
