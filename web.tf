@@ -22,8 +22,11 @@ resource "aws_instance" "web" {
     "${aws_security_group.web_host_sg.id}",
   ]
 
+  tags {
+    Owner = "${element(var.owner_tag,count.index)}"
+  }
 
-  count = 2
+  count = "${length(var.instance_ips)}"
 }
 
 resource "aws_elb" "web" {
