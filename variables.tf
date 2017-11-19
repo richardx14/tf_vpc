@@ -5,7 +5,7 @@ variable "region" {
 
 variable "key_name" {
   description = "The AWS key pair to use for resources."
-  default     = "richardx14"
+  default     = "docker-riemann"
 }
 
 variable "ami" {
@@ -16,7 +16,7 @@ variable "ami" {
 
 variable "instance_type" {
   description = "The instance type."
-  default     = "t2. micro"
+  default     = "t2.micro"
 }
 
 variable "instance_ips" {
