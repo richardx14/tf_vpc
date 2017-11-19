@@ -2,6 +2,10 @@ provider "aws" {
   region = "${var.region}"
 }
 
+variable "environment" {
+ default = "development"
+}
+
 module "vpc" {
   source        = "./vpc"
   name          = "web"
@@ -26,7 +30,9 @@ resource "aws_instance" "web" {
     Owner = "${element(var.owner_tag,count.index)}"
   }
 
-  count = "${length(var.instance_ips)}"
+  count = "${var.environment == "production" ? 4 : 2}"
+
+"${length(var.instance_ips)}"
 }
 
 resource "aws_elb" "web" {
