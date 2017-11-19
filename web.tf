@@ -7,7 +7,7 @@ variable "environment" {
 }
 
 module "vpc" {
-  source        = "./vpc"
+  source        = "github.com/richardx14/tf_vpc.git"
   name          = "web"
   cidr          = "10.0.0.0/16"
   public_subnet = "10.0.1.0/24"
@@ -32,7 +32,6 @@ resource "aws_instance" "web" {
 
   count = "${var.environment == "production" ? 4 : 2}"
 
-"${length(var.instance_ips)}"
 }
 
 resource "aws_elb" "web" {
