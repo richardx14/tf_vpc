@@ -7,7 +7,8 @@ variable "environment" {
 }
 
 module "vpc" {
-  source        = "github.com/richardx14/tf_vpc.git"
+#  source        = "github.com/turnbullpress/tf_vpc.git?ref=v0.0.1"
+  source        = "github.com/rihardx14/tf_vpc.git?ref=v0.1.1"
   name          = "web"
   cidr          = "10.0.0.0/16"
   public_subnet = "10.0.1.0/24"
@@ -25,10 +26,6 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [
     "${aws_security_group.web_host_sg.id}",
   ]
-
-  tags {
-    Owner = "${element(var.owner_tag,count.index)}"
-  }
 
   count = "${var.environment == "production" ? 4 : 2}"
 }

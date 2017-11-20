@@ -24,6 +24,3 @@ variable "instance_ips" {
   default     = ["10.0.1.20", "10.0.1.21"]
 }
 
-variable "owner_tag" {
-  default = ["team 1", "team 2"]
-}
