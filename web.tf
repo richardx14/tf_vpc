@@ -8,7 +8,7 @@ variable "environment" {
 
 module "vpc" {
 #  source        = "github.com/turnbullpress/tf_vpc.git?ref=v0.0.1"
-  source        = "github.com/rihardx14/tf_vpc.git?ref=v0.1.1"
+  source        = "github.com/richardx14/tf_vpc.git?ref=v0.1.1"
   name          = "web"
   cidr          = "10.0.0.0/16"
   public_subnet = "10.0.1.0/24"
