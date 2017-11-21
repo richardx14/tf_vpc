@@ -24,3 +24,6 @@ variable "instance_ips" {
   default     = ["10.0.1.20", "10.0.1.21"]
 }
 
+variable "key_path" {
+  default = "/home/ubuntu/.ssh/richard_aws"
+}
