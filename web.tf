@@ -2,6 +2,15 @@ provider "aws" {
   region = "${var.region}"
 }
 
+
+terraform {
+  backend "s3" {
+    region = "eu-west-2"
+    bucket = "dicecentre-remote-state-web"
+    key = "terraform.tfstate"
+  }
+}
+
 module "remote_state" {
   source = "github.com/richardx14/tf_remote_state.git?ref=v2.0.0"
 
