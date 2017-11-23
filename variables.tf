@@ -27,3 +27,14 @@ variable "instance_ips" {
 variable "key_path" {
   default = "/home/ubuntu/.ssh/richard_aws"
 }
+
+variable "prefix" {
+  default = "dicecentre"
+  description = "The name of our org"
+}
+
+variable "environment" {
+  default = "web"
+  description = "Name of env"
+}
+

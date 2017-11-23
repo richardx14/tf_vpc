@@ -2,8 +2,11 @@ provider "aws" {
   region = "${var.region}"
 }
 
-variable "environment" {
-  default = "development"
+module "remote_state" {
+  source = "github.com/richardx14/tf_remote_state.git"
+
+  prefix = "${var.prefix}"
+  environment = "${var.environment}"
 }
 
 module "vpc" {
