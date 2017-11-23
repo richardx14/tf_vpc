@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "remote_state" {
-  source = "github.com/richardx14/tf_remote_state.git"
+  source = "github.com/richardx14/tf_remote_state.git?ref=v2.0.0"
 
   prefix = "${var.prefix}"
   environment = "${var.environment}"
